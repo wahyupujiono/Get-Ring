@@ -7,8 +7,8 @@ return [
     | End Point Api ( Konfigurasi Server Akun )
     |--------------------------------------------------------------------------
     |
-    | Starter : http://rajaongkir.com/api/starter
-    | Basic : http://rajaongkir.com/api/basic
+    | Starter : http://api.rajaongkir.com/starter
+    | Basic : http://api.rajaongkir.com/basic
     | Pro : http://pro.rajaongkir.com/api
     |
     */
