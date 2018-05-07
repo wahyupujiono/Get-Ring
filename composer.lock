@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "7f724241074616b392e0ed121983d014",
+    "content-hash": "eef3fb2e19c22e1ff6f8697d853dc212",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -769,16 +769,16 @@
         },
         {
             "name": "league/flysystem",
-            "version": "1.0.44",
+            "version": "1.0.45",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "168dbe519737221dc87d17385cde33073881fd02"
+                "reference": "a99f94e63b512d75f851b181afcdf0ee9ebef7e6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/168dbe519737221dc87d17385cde33073881fd02",
-                "reference": "168dbe519737221dc87d17385cde33073881fd02",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/a99f94e63b512d75f851b181afcdf0ee9ebef7e6",
+                "reference": "a99f94e63b512d75f851b181afcdf0ee9ebef7e6",
                 "shasum": ""
             },
             "require": {
@@ -849,7 +849,7 @@
                 "sftp",
                 "storage"
             ],
-            "time": "2018-04-06T09:58:14+00:00"
+            "time": "2018-05-07T08:44:23+00:00"
         },
         {
             "name": "league/oauth1-client",
@@ -1351,47 +1351,6 @@
                 "shell"
             ],
             "time": "2016-03-09T05:03:14+00:00"
-        },
-        {
-            "name": "rizalafani/rajaongkirlaravel",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/rizalafani/rajaongkirlaravel.git",
-                "reference": "a01c4297b8d04e8c5e32ce008fbce146474426b0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/rizalafani/rajaongkirlaravel/zipball/a01c4297b8d04e8c5e32ce008fbce146474426b0",
-                "reference": "a01c4297b8d04e8c5e32ce008fbce146474426b0",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/support": "~5"
-            },
-            "type": "package",
-            "autoload": {
-                "psr-4": {
-                    "rizalafani\\rajaongkirlaravel\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Ahmad Rizal Afani",
-                    "email": "ahmadrizalafani@gmail.com"
-                }
-            ],
-            "description": "Raja Ongkir API Laravel 5",
-            "keywords": [
-                "application programming interface",
-                "laravel",
-                "rajaongkir"
-            ],
-            "time": "2016-04-24T22:20:24+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -2278,6 +2237,50 @@
                 "environment"
             ],
             "time": "2016-09-01T10:05:43+00:00"
+        },
+        {
+            "name": "wahyupujiono/rajaongkir-laravel",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wahyupujiono/rajaongkir-laravel.git",
+                "reference": "88007ce301259a9fe4fdf6111f9b4c4bcef0bd86"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wahyupujiono/rajaongkir-laravel/zipball/88007ce301259a9fe4fdf6111f9b4c4bcef0bd86",
+                "reference": "88007ce301259a9fe4fdf6111f9b4c4bcef0bd86",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~5"
+            },
+            "type": "package",
+            "autoload": {
+                "psr-4": {
+                    "wahyupujiono\\RajaOngkirLaravel\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Wahyu Pujiono",
+                    "email": "pujiono_wahyu@yahoo.co.id",
+                    "homepage": "http://wahyupujiono.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Raja Ongkir API Laravel 5",
+            "homepage": "https://github.com/wahyupujiono/rajaongkir-laravel",
+            "keywords": [
+                "application programming interface",
+                "laravel",
+                "rajaongkir"
+            ],
+            "time": "2018-05-05T20:26:06+00:00"
         }
     ],
     "packages-dev": [
@@ -3676,7 +3679,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "rizalafani/rajaongkirlaravel": 20
+        "wahyupujiono/rajaongkir-laravel": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

@@ -157,7 +157,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         Laracasts\Flash\FlashServiceProvider::class,
-        rizalafani\rajaongkirlaravel\RajaOngkirServiceProvider::class,
+        wahyupujiono\RajaOngkirLaravel\RajaOngkirServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
 
 
@@ -209,7 +209,7 @@ return [
         'Form'      => Collective\Html\FormFacade::class,
         'Html'      => Collective\Html\HtmlFacade::class,
         'Flash'     => Laracasts\Flash\Flash::class,
-        'RajaOngkir' => rizalafani\rajaongkirlaravel\RajaOngkirFacade::class,
+        'RajaOngkir' => wahyupujiono\RajaOngkirLaravel\RajaOngkirFacade::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
     ],
 

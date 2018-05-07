@@ -9,7 +9,7 @@
         "laravel/framework": "5.2.*",
         "laravelcollective/html": "^5.2",
         "laracasts/flash": "^2.0",
-        "rizalafani/rajaongkirlaravel" : "dev-master",
+        "wahyupujiono/rajaongkir-laravel" : "dev-master",
         "laravel/socialite": "^2.0"
     },
     "require-dev": {
