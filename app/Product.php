@@ -10,8 +10,13 @@ class Product extends Model
 {
     protected $appends = ['photo_path'];
 
-    protected $fillable = ['name', 'photo', 'vendor', 'description', 'price', 'weight'];
+    protected $fillable = ['user_id', 'name', 'photo', 'vendor', 'description', 'price', 'weight'];
 
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
+    
     public function categories()
     {
         return $this->belongsToMany('App\Category');
@@ -33,7 +38,7 @@ class Product extends Model
             //removing relations to category
             $model->categories()->detach();
             // removing relations to cart
-            $model->cart()->detach();
+            //$model->cart()->detach();
         });
     }
 
@@ -46,10 +51,10 @@ class Product extends Model
         }
     }
 
-    public function carts()
+ /*   public function cart()
     {
         return $this->hasMany('App\Cart');
-    }
+    }*/
 
     public function getCostTo($destination_id)
     {

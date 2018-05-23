@@ -40,7 +40,7 @@ class CustomerOrdersController extends Controller
         $orders = auth()->user()->orders()
         ->where('id', 'LIKE', '%'.$q.'%')
         ->where('status', 'LIKE', '%'.$status.'%')
-        ->orderBy('updated_at')
+        ->orderBy('updated_at', 'desc')
         ->paginate(5);
 
         return view('customer.view-orders')->with(compact('orders', 'q', 'status'));

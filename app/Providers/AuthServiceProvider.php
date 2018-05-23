@@ -33,5 +33,9 @@ class AuthServiceProvider extends ServiceProvider
         $gate->define('customer-access', function($user){
             return $user->role == 'customer';
         });
+
+        $gate->define('vendor-access', function($user){
+            return $user->role == 'vendor';
+        });
     }
 }

@@ -1,3 +1,4 @@
+
 <div class="form-group {!! $errors->has('name') ? 'has-error' : '' !!}">
     {!! Form::label('name', 'Name') !!}
     {!! Form::text('name',null, ['class'=>'form-control']) !!}
@@ -5,9 +6,9 @@
 </div>
 
 <div class="form-group {!! $errors->has('vendor') ? 'has-error' : '' !!}">
-    {!! Form::label('vendor', 'Vendor') !!}
-    {!! Form::select('vendor', [''=>'']+App\User::lists(  'name','id')->all(), null, ['class'=>'form-control']) !!}
-    {!!  $errors->first('vendor', '<p class="help-block">:message</p>') !!}
+    {!! Form::label('vendor', 'Vendor Name') !!}
+    {!! Form::text('vendor',Auth::user()->name, ['class'=>'form-control', 'disabled'=>'disabled']) !!}
+    {!! $errors->first('vendor', '<p class="help-block">:message</p>') !!}
 </div>
 
 <div class="form-group {!! $errors->has('description') ? 'has-error' : '' !!}">
@@ -54,5 +55,3 @@
     {!! Form::submit(isset($model) ? 'Update' : 'Save', ['class'=>'btn btn-primary']) !!}
 <br>
 <br>
-
-<script src="{{ 'js/text.js' }}"></script>

@@ -15,7 +15,7 @@ class UsersController extends Controller
 	public function __construct()
 	{
 		$this->middleware('auth');
-		$this->middleware('role:admin');
+		//$this->middleware('role:admin');
 	}
 
      public function edit()
@@ -26,8 +26,8 @@ class UsersController extends Controller
     public function update(Request $request)
     {
     	$this->validate($request, [
-    		'name'=>'alpha|max:20',
-    		'email'=>'max:20',
+    		'name'=>'max:60',
+    		'email'=>'max:60',
     		'password'=>'max:20'
     	]);
     	

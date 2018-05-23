@@ -11,12 +11,13 @@ use App\User;
 use Symfony\Component\HttpFoundation\file\UploadedFile;
 use File;
 
-class ProductsController extends Controller
+class VendorProductsController extends Controller
 {
     public function __construct()
     {
         $this->middleware('auth');
-        $this->middleware('role:admin');
+        $this->middleware('role:vendor');
+
     }
 
     public function deletePhoto($filename)
@@ -40,11 +41,13 @@ class ProductsController extends Controller
     public function index(Request $request)
     {
         $q= $request->get('q');
-            $products= Product::where('name', 'LIKE', '%'.$q.'%')
-            ->orderBy('vendor', 'LIKE', '%'.$q.'%')
-            ->orderBy('created_at')
-            ->paginate(5);
-            return view('products.index', compact('products','q'));
+        $products = auth()->user()->products()
+        ->where('name', 'LIKE', '%'.$q.'%')
+        ->orderBy('vendor', 'LIKE', '%'.$q.'%')
+        ->orderBy('created_at')
+        ->paginate(5);
+            //$products= Product::where('name', 'LIKE', '%'.$q.'%')->orderBy('vendor', 'LIKE', '%'.$q.'%')->orderBy('name')->paginate(5);
+            return view('vendor.products.index', compact('products','q'));
     }
 
     /**
@@ -54,8 +57,7 @@ class ProductsController extends Controller
      */
     public function create()
     {
-        $user = User::find($id);
-        return view('products.create');
+        return view('vendor.products.create');
     }
 
     /**
@@ -68,28 +70,28 @@ class ProductsController extends Controller
     {
         $this->validate($request,[
             'name' =>'required|unique:products',
-            'vendor'=>'required',
             'description' => 'required',
             'photo'=>'mimes:jpeg,png,jpg|max:10240',
             'price'=>'required|numeric|min:1000',
             'weight'=>'required|numeric|min:1'
         ]);
 
-        $user = User::find($id);
-        $data = $request->only('name', 'vendor', 'description', 'price', 'weight');
+        $user_id = Auth::user()->id;
+        $user = Auth::user()->name;
+        $data = $request->only('name', 'description', 'price', 'weight');
 
         if ($request->hasFile('photo'))
         {
             $data['photo'] = $this->savePhoto($request->file('photo'));
         }
 
-        $data['user_id']=$request->get('vendor');
-        
+        $data['user_id']=$user_id;
+        $data['vendor']=$user;
         $product = Product::create($data);
         $product->categories()->sync($request->get('category_lists'));
 
         \Flash::success($product->name. ' saved.');
-        return redirect()->route('products.index');
+        return redirect()->route('products-vendor.index');
     }
 
     /**
@@ -112,8 +114,7 @@ class ProductsController extends Controller
     public function edit($id)
     {
         $product = Product::findOrFail($id);
-        $user = User::find($id);
-        return view('products.edit', compact('product'));
+        return view('vendor.products.edit', compact('product'));
     }
 
     /**
@@ -128,23 +129,23 @@ class ProductsController extends Controller
         $product = Product::findOrFail($id);
         $this->validate($request, [
             'name'=>'required|unique:products,name,'.$product->id,
-            'vendor'=>'required',
             'description' => 'required',
             'photo'=>'mimes:jpeg,jpg,png|max:10240',
             'price'=>'required|numeric|min:1000',
             'weight'=>'required|numeric|min:1'
         ]);
 
-        $user = User::find($id);
-        $data = $request->only('name', 'vendor', 'description', 'price', 'weight');
+        $user_id = Auth::user()->id;
+        $user = Auth::user()->name;
+        $data = $request->only('name', 'description', 'price', 'weight');
 
         if ($request->hasFile('photo')) {
             $data['photo'] = $this->savePhoto($request->file('photo'));
             if ($product->photo !== '') $this->deletePhoto($product->photo);
         }
 
-        $data['user_id']=$request->get('vendor');
-        
+        $data['user_id']=$user_id;
+        $data['vendor']=$user;
         $product->update($data);
         if (count($request->get('category_lists')) > 0) {
             $product->categories()->sync($request->get('category_lists'));
@@ -154,7 +155,7 @@ class ProductsController extends Controller
         }
 
         \Flash::success($product->name. ' update.');
-        return redirect()->route('products.index');
+        return redirect()->route('products-vendor.index');
     }
 
     /**
@@ -170,6 +171,6 @@ class ProductsController extends Controller
         $product->delete();
 
         \Flash::success('Product Deleted.');
-        return redirect()->route('products.index');
+        return redirect()->route('products-vendor.index');
     }
 }

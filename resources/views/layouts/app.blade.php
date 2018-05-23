@@ -58,6 +58,10 @@
                     </li>
                     @endcan
 
+                    @can('vendor-access')
+                    <li><a href="{{ route('products-vendor.index') }}">Products</a></li>
+                    @endcan
+
                     @can('customer-access')
                     <li><a href="{{ route('customer-orders.index') }}">Orders</a></li>
                     @endcan
@@ -81,6 +85,9 @@
                             <ul class="dropdown-menu" role="menu">
                                 @if(Auth::check())
                                 @can('admin-access')
+                                <li><a href="{{url('profile/edit') }}"><i class="fa fa-user-md"></i>Profile</a></li>
+                                @endcan
+                                @can('vendor-access')
                                 <li><a href="{{url('profile/edit') }}"><i class="fa fa-user-md"></i>Profile</a></li>
                                 @endcan
                                 @endif
