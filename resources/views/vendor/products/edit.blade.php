@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-12">
             <h3>Edit {{$product->name}}</h3>
-            {!! Form::model($product, ['route'=>['products-vendor.update', $product], 'method'=>'patch', 'files'=>true]) !!}
+            {!! Form::model($product, ['route'=>['vendor-products.update', $product], 'method'=>'patch', 'files'=>true]) !!}
             @include('vendor.products._form', ['model'=> $product])
             {!! Form::close() !!}
         </div>

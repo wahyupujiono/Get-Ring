@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <h3>Menu Catering <small><a href="{{route('products-vendor.create') }}" class="btn btn-warning btn-sm">New Menu Catering</a></small></h3>
+            <h3>Menu Catering <small><a href="{{route('vendor-products.create') }}" class="btn btn-warning btn-sm">New Menu Catering</a></small></h3>
             {!! Form::open(['url'=>'products', 'method'=>'get', 'class'=>'form-inline']) !!}
             <div class="form-group {!! $errors->has('q') ? 'has-error' :'' !!}">
             {!! Form::text('q', isset($q) ? $q :null, ['class'=>'form-control', 'placeholder'=>'Type Nama / Vendor']) !!}
@@ -39,8 +39,8 @@
                     @endforeach
                 </td>
                 <td>
-                    {!! Form::model($product,['route'=>['products-vendor.destroy', $product], 'method'=>'delete', 'class'=>'form-inline']) !!}
-                    <a href="{{route('products-vendor.edit', $product->id)}}">Edit</a> |
+                    {!! Form::model($product,['route'=>['vendor-products.destroy', $product], 'method'=>'delete', 'class'=>'form-inline']) !!}
+                    <a href="{{route('vendor-products.edit', $product->id)}}">Edit</a> |
                     {!! Form::submit('delete', ['class'=>'btn btn-xs btn-danger js-submit-confirm']) !!}
                     {!! Form::close() !!}
                 </td>

@@ -26,18 +26,26 @@
             </tbody>
             <tfoot>
                 @if(request()->is('checkout/payment'))
-                <tr>
+<!--                <tr>
                     <td data-th="Subtotal"><strong>Biaya Administrasi</strong></td>
                     <td data-th="subtotal" class="text-right" colspan="2"><strong>Rp{{number_format($cart->shipingFee())}}</strong></td>
-                </tr>
+                </tr>-->
                 <tr>
                    <td><strong>Total</strong></td>
                    <td class="text-right" colspan="2"><strong>Rp{{number_format($cart->totalPrice()+$cart->shipingFee())}}</strong></td>
+                </tr>
+                <tr>
+                   <td><strong>Vendor</strong></td>
+                   <td class="text-right" colspan="2"><strong>{{$order['detail']['vendor']}}</strong></td>
                 </tr>
                 @else
                 <tr>
                 <td><strong>total</strong></td>
                 <td class="text-right"colspan="2"><strong>Rp{{number_format($cart->totalPrice())}}</strong></td>
+                </tr>
+                <tr>
+                   <td><strong>Vendor</strong></td>
+                   <td class="text-right" colspan="2"><strong>{{$order['detail']['vendor']}}</strong></td>
                 </tr>
                 @endif
             </tfoot>

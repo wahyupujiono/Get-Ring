@@ -59,7 +59,8 @@
                     @endcan
 
                     @can('vendor-access')
-                    <li><a href="{{ route('products-vendor.index') }}">Products</a></li>
+                    <li><a href="{{ route('vendor-products.index') }}">Products</a></li>
+<!--                    <li><a href="{{ route('vendor-orders.index') }}">Orders</a></li>-->
                     @endcan
 
                     @can('customer-access')

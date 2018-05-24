@@ -86,7 +86,7 @@ class CartController extends Controller
 
     public function changeQuantity(Request $request, $product_id)
     {
-        $this->validate($request,['quantity'=>'required|integer|min:1']);
+        $this->validate($request,['quantity'=>'required|integer|min:50']);
         $quantity=$request->get('quantity');
         $cart = $this->cart->find($product_id);
         if (!$cart) return redirect('cart');

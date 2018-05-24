@@ -45,7 +45,7 @@ Route::group(['middleware' => 'web'], function () {
     Route::resource('categories', 'CategoriesController');
 
     Route::resource('products','ProductsController');
-    Route::resource('products-vendor','VendorProductsController');
+    Route::resource('vendor-products','VendorProductsController');
 
     Route::get('checkout/login','CheckoutController@login');
     Route::post('checkout/login','CheckoutController@postlogin');
@@ -62,6 +62,10 @@ Route::group(['middleware' => 'web'], function () {
     Route::resource('orders','OrdersController', ['only'=>[
         'index', 'edit', 'update'
     ]]);
+
+ /*   Route::resource('vendor-orders','VendorOrdersController', ['only'=>[
+        'index', 'edit', 'update'
+    ]]);*/
 
     //Route::get('/home/orders', 'HomeController@viewOrders');
     Route::resource('customer-orders', 'CustomerOrdersController',['only'=>[

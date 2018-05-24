@@ -91,7 +91,7 @@ class VendorProductsController extends Controller
         $product->categories()->sync($request->get('category_lists'));
 
         \Flash::success($product->name. ' saved.');
-        return redirect()->route('products-vendor.index');
+        return redirect()->route('vendor-products.index');
     }
 
     /**
@@ -155,7 +155,7 @@ class VendorProductsController extends Controller
         }
 
         \Flash::success($product->name. ' update.');
-        return redirect()->route('products-vendor.index');
+        return redirect()->route('vendor-products.index');
     }
 
     /**
@@ -171,6 +171,6 @@ class VendorProductsController extends Controller
         $product->delete();
 
         \Flash::success('Product Deleted.');
-        return redirect()->route('products-vendor.index');
+        return redirect()->route('vendor-products.index');
     }
 }

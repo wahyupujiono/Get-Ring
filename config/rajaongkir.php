@@ -25,7 +25,7 @@ return [
     */
 
 	'api_key' => env('RAJAONGKIR_APIKEY', '0ec1a6b951e6c7c3749a5e036f2826fe'),
-    'fallback_fee'=>env('RAJAONGKIR_FALLBACK_FEE', 200),
+    'fallback_fee'=>env('RAJAONGKIR_FALLBACK_FEE', 0),
     'origin'=>env('RAJAONGKIR_REGENCY_ORIGIN', 3), //KOTA CILEGON
     'courier'=>env('RAJAONGKIR_COURIER','jne'),
     'service'=>env('RAJAONGKIR_SERVICE', 'REG')
