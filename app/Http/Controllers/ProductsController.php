@@ -75,7 +75,7 @@ class ProductsController extends Controller
             'weight'=>'required|numeric|min:1'
         ]);
 
-        $user = User::find($id);
+        //$user = User::find($id);
         $data = $request->only('name', 'vendor', 'description', 'price', 'weight');
 
         if ($request->hasFile('photo'))
