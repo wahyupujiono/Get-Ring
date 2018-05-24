@@ -54,7 +54,7 @@ class ProductsController extends Controller
      */
     public function create()
     {
-        $user = User::find($id);
+        //$user = User::find($id);
         return view('products.create');
     }
 
