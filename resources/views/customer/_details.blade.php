@@ -18,7 +18,7 @@
             <td data-th="Subtotal" class="text-right" colspan="2">Rp{{number_format($detail->total_price)}}</td>
         </tr>
         @endforeach
-<!--        <tr>
+<!--        <tr> 
             <td data-th="Subtotal"><strong>Biaya Administrasi</strong></td>
             <td data-th="Subtotal" class="text-right" colspan="2">Rp{{ number_format($detail->total_fee) }}</td>
         </tr>-->
